@@ -1,0 +1,4 @@
+module "Compartment" {
+    source = "./Compartment"
+    
+}
