@@ -22,3 +22,4 @@ root_compartment_variables = {
      compartment_name = "peoplesoft_compartment"
      compartment_description = "Compartment for PeopleSoft resources"
 }
+}
