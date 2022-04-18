@@ -14,6 +14,6 @@ module "CreateRootCompartment" {
 module "CreateCompartmentEBS" {
   source                ="../module/create-compartment"
   # parent_ocid           = local.ebs_root_compartment_id[0]
-  parent_ocid           = module.CreateRootCompartment.compartment_id[0]
+  parent_ocid           = module.CreateRootCompartment.compartment_id
   compartment_variables = var.ebs_compartment_variables
 }
