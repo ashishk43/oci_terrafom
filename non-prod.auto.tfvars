@@ -5,10 +5,10 @@ fingerprint = "58:29:77:14:6d:c2:7b:2b:d8:d7:26:c6:99:6e:26:09"
 region = "ap-mumbai-1"
 
 root_compartment_variables = {
-  c1 = { 
-     compartment_name = "network_compartment"
-     compartment_description = "Compartment for Network resources"
-     }
+#   c1 = { 
+#      compartment_name = "network_compartment"
+#      compartment_description = "Compartment for Network resources"
+#      }
 #   c2 = { 
 #      compartment_name = "ebs_compartment"
 #      compartment_description = "Compartment for EBS resources"
