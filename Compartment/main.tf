@@ -7,7 +7,7 @@ module "CreateRootCompartment" {
 
 locals {
   ebs_root_compartment_id = [
-    for i in .module.CreateRootCompartment.oci_identity_compartment.CreateCompartment[*] : i.id if i.name == "network_compartment"
+    for i in .module.CreateRootCompartment.instances : i.id if i.name == "network_compartment"
   ]
 }
 
