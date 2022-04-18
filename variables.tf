@@ -8,5 +8,4 @@ variable "fingerprint" {
 }
 variable "region" {    
 }
-
 variable "root_compartment_variables" {}
