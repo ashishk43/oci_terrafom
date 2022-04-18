@@ -7,12 +7,12 @@ module "CreateRootCompartment" {
 
 locals {
   ebs_root_compartment_id = [
-    for i in var.compartment_id : i.id if i.name == "network_compartment"
+    for i in module.CreateRootCompartment[*] : i.id if i.name == "network_compartment"
   ]
 }
 
 module "CreateCompartmentEBS" {
   source                ="../module/create-compartment"
-  parent_ocid           = local.ebs_root_compartment_id
+  parent_ocid           = local.ebs_root_compartment_id[0]
   compartment_variables = var.ebs_compartment_variables
 }
