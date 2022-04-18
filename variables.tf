@@ -9,3 +9,4 @@ variable "fingerprint" {
 variable "region" {    
 }
 variable "root_compartment_variables" {}
+variable "ebs_compartment_variables" {}
