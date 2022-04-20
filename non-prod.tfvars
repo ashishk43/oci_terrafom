@@ -2,4 +2,4 @@ tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaa3cu5bpzzmpaanzgzzih72p7gjg4bsm3fkg44g
 user_ocid = "ocid1.user.oc1..aaaaaaaaconasvqbzmsucnbpt43uiy7uti26ljjjrmyjhv6h76nfsffme4sa" 
 private_key_path = "./terrafrom.pem"
 fingerprint = "58:29:77:14:6d:c2:7b:2b:d8:d7:26:c6:99:6e:26:09"
-region = "eu-frankfurt-1"
+region = "eu-frankfurt-2"
