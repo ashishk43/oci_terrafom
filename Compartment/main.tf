@@ -17,6 +17,4 @@ module "CreateRootCompartment" {
 #   compartment_variables = var.ebs_compartment_variables
 # }
 
-output "test" {
-  value = module.CreateRootCompartment[*]
-}
+
