@@ -6,7 +6,6 @@ locals {
       for user in group_data.user_list : {
         group_name = group
         user_name = user
-        user_group_map = user+group
       }
     ]  
   ])
@@ -31,7 +30,7 @@ resource "oci_identity_user" "this" {
 
 # Iterate the mapping of users that are members of each group to create the association
 resource "oci_identity_user_group_membership" "test_user_group_membership" {
-    for_each = {for users in local.iam_group_users: users.user_group_map =>  users}
+    for_each = {for users in local.iam_group_users: users.user_name =>  users}
     group_id = oci_identity_group.this[each.value.group_name].id
     user_id = oci_identity_user.this[each.value.user_name].id
 }
