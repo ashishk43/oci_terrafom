@@ -19,6 +19,17 @@ root_compartment_variables = {
       }
 }
 
+# ebs_compartment_variables = {
+#   c1 = { 
+#      compartment_name = "ebs_apps_compartment"
+#      compartment_description = "Compartment for EBS Apps resources"
+#      }
+#   c2 = { 
+#      compartment_name = "ebs_db_compartment"
+#      compartment_description = "Compartment for EBS DB resources"
+#       }
+#   }
+
 iam_groups = {
     iamg1 = { group_name = "group_test", group_desc = "group test", user_list = ["test", "test1"] }
     iamg2 = { group_name = "group_test1", group_desc = "group test1", user_list = ["test", "test1"] }
