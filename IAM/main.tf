@@ -44,7 +44,7 @@ locals {
 # default values
 
 default_policy = {
-    tenancy_compartment_id = null
+    tenancy_compartment_id = var.tenancy_ocid
     description            = "OCI Policy created with the OCI Core IAM Policies Module"
     statements             = []
     name                   = "OCI-Policy"
