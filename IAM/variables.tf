@@ -16,5 +16,4 @@ variable "policies_config" {
       })
     )
   })
-  description = "Parameters to provision zero, one or multiple policies"
 }
