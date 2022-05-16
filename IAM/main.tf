@@ -55,7 +55,6 @@ default_policy = {
 }
 
 resource "oci_identity_policy" "policies" {
-  provider = "oci.oci_home"
   for_each = var.policies_config != null ? (var.policies_config.policies != null ? var.policies_config.policies : {}) : {}
   #Required
   compartment_id = each.value.compartment_id != null ? each.value.compartment_id : (var.policies_config.default_compartment_id != null ? var.policies_config.default_compartment_id : local.default_policy.compartment_id)
