@@ -31,7 +31,28 @@ resource "oci_core_subnet" "tf_vcn_public_subnet"{
   cidr_block        = each.value.vnc_public_subnet_cidr_block
 
   # Optional
-#   route_table_id    = module.vcn.ig_route_id
+  route_table_id    = oci_core_route_table.this[each.key].id
 #   security_list_ids = [oci_core_security_list.tf_public_security_list.id]
   display_name      = "${each.value.vcn_display_name}-public-subnet"
+}
+
+resource "oci_core_internet_gateway" "this" {
+  for_each = var.vcn_config.vcn
+  compartment_id    = each.value.compartment_id
+  display_name   = "${each.value.vcn_display_name}-Internet Gateway"
+  enabled        = true
+  vcn_id         = oci_core_vcn.this[each.key].id
+}
+
+resource "oci_core_route_table" "this" {
+  for_each = var.vcn_config.vcn
+  display_name   = "${each.value.vcn_display_name}-Route Table"
+  compartment_id    = each.value.compartment_id
+  vcn_id         = oci_core_vcn.this[each.key].id
+
+  route_rules {
+    destination       = "0.0.0.0/0"
+    destination_type  = "CIDR_BLOCK"
+    network_entity_id = oci_core_internet_gateway.this[each.key].id
+  }
 }
