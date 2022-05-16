@@ -9,3 +9,29 @@ resource "oci_core_vcn" "this" {
   freeform_tags = each.value.freeform_tags
   defined_tags = each.value.defined_tags
 }
+
+resource "oci_core_subnet" "tf_vcn_private_subnet"{
+  # Required
+  for_each = var.vcn_config.vcn
+  compartment_id    = each.value.compartment_id
+  vcn_id            = oci_core_vcn.this.[each.value.vcn_display_name].id
+  cidr_block        = each.value.vnc_private_subnet_cidr_block
+
+  # Optional
+#   route_table_id    = module.vcn.nat_route_id
+#   security_list_ids = [oci_core_security_list.tf_private_security_list.id]
+#   display_name      = "private-subnet"
+}
+
+resource "oci_core_subnet" "tf_vcn_public_subnet"{
+  # Required
+  for_each = var.vcn_config.vcn
+  compartment_id    = var.compartment_id
+  vcn_id            = oci_core_vcn.this.[each.value.vcn_display_name].id
+  cidr_block        = each.value.vnc_public_subnet_cidr_block
+
+  # Optional
+#   route_table_id    = module.vcn.ig_route_id
+#   security_list_ids = [oci_core_security_list.tf_public_security_list.id]
+#   display_name      = "public-subnet"
+}
