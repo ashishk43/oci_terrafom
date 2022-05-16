@@ -10,4 +10,5 @@ module "iam" {
     tenancy_ocid = var.tenancy_ocid
     iam_groups = var.iam_groups
     iam_users = var.iam_users
+    policies_config = var.policies_config
 }

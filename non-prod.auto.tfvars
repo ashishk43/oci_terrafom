@@ -9,14 +9,14 @@ root_compartment_variables = {
      compartment_name = "network_compartment"
      compartment_description = "Compartment for Network resources"
      }
-  c2 = { 
-     compartment_name = "ebs_compartment"
-     compartment_description = "Compartment for EBS resources"
-      }
-  c3 = { 
-     compartment_name = "peoplesoft_compartment"
-     compartment_description = "Compartment for PeopleSoft resources"
-      }
+#   c2 = { 
+#      compartment_name = "ebs_compartment"
+#      compartment_description = "Compartment for EBS resources"
+#       }
+#   c3 = { 
+#      compartment_name = "peoplesoft_compartment"
+#      compartment_description = "Compartment for PeopleSoft resources"
+#       }
 }
 
 ebs_compartment_variables = {
@@ -39,3 +39,27 @@ iam_users = {
     test = {user_name = "test", user_desc = "user test"}
     test1 = {user_name = "test1", user_desc = "user test1"}
   }
+
+policies_config = {
+  default_compartment_id = "<default_compartment_ocid>"
+  default_defined_tags   = "<default_defined_tags>"
+  default_freeform_tags  = "<default_freeform_tags>"
+  policies = {
+    policy_1 = {
+      description    = "Test Policy 1"
+      statements     = ["<statement-1>", "<statement-2>"]
+      version_date   = null
+      compartment_id = "<specific_compartment_ocid>"
+      defined_tags   = "<specific_defined_tags>"
+      freeform_tags  = "<specific_freeform_tags>"
+    }
+    policy_2 = {
+      description    = "Test Policy 2"
+      statements     = ["<statement-1>"]
+      version_date   = null
+      compartment_id = "<specific_compartment_ocid>"
+      defined_tags   = "<specific_defined_tags>"
+      freeform_tags  = "<default_freeform_tags>"
+    }
+  }
+}
