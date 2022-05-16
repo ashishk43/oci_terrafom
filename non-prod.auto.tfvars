@@ -42,8 +42,8 @@ iam_users = {
 
 policies_config = {
   default_compartment_id = "ocid1.tenancy.oc1..aaaaaaaaqitjiiy2rwxnzhpcdxlvzmxkl2x7ki6doky2jqptm7uhfz7u6gpa"
-  default_defined_tags   = "default_defined_tags"
-  default_freeform_tags  = "default_freeform_tags"
+#   default_defined_tags   = "default_defined_tags"
+#   default_freeform_tags  = "default_freeform_tags"
   policies = {
     policy_1 = {
       description    = "Test Policy 1"
