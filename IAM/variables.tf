@@ -8,11 +8,11 @@ variable "policies_config" {
     default_freeform_tags  = map(string),
     policies = map(object({
       compartment_id = string,
-      defined_tags   = map(string),
-      freeform_tags  = map(string),
+    #   defined_tags   = map(string),
+    #   freeform_tags  = map(string),
       description    = string,
       statements     = list(string),
-      version_date   = string
+    #   version_date   = string
       })
     )
   })
