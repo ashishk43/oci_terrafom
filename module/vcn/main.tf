@@ -14,7 +14,7 @@ resource "oci_core_subnet" "tf_vcn_private_subnet"{
   # Required
   for_each = var.vcn_config.vcn
   compartment_id    = each.value.compartment_id
-  vcn_id            = oci_core_vcn.this.[each.value.display_name].name
+  vcn_id            = ${oci_core_vcn.this.*.id}
   cidr_block        = each.value.vnc_private_subnet_cidr_block
 
   # Optional
@@ -27,7 +27,7 @@ resource "oci_core_subnet" "tf_vcn_public_subnet"{
   # Required
   for_each = var.vcn_config.vcn
   compartment_id    = each.value.compartment_id
-  vcn_id            = oci_core_vcn.this.[each.value.vcn_display_name].name
+  vcn_id            = ${oci_core_vcn.this.*.id}
   cidr_block        = each.value.vnc_public_subnet_cidr_block
 
   # Optional
