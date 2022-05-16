@@ -63,7 +63,7 @@ resource "oci_identity_policy" "policies" {
   statements     = each.value.statements
 
   #Optional
-#   defined_tags  = each.value.defined_tags != null ? each.value.defined_tags : (var.policies_config.default_defined_tags != null ? var.policies_config.default_defined_tags : local.default_policy.defined_tags)
-#   freeform_tags = each.value.freeform_tags != null ? each.value.freeform_tags : (var.policies_config.default_freeform_tags != null ? var.policies_config.default_freeform_tags : local.default_policy.freeform_tags)
-#   version_date  = each.value.version_date != null ? each.value.version_date : local.default_policy.version_date
+  defined_tags  = each.value.defined_tags != null ? each.value.defined_tags : (var.policies_config.default_defined_tags != null ? var.policies_config.default_defined_tags : local.default_policy.defined_tags)
+  freeform_tags = each.value.freeform_tags != null ? each.value.freeform_tags : (var.policies_config.default_freeform_tags != null ? var.policies_config.default_freeform_tags : local.default_policy.freeform_tags)
+  version_date  = each.value.version_date != null ? each.value.version_date : local.default_policy.version_date
 }
