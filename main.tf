@@ -12,3 +12,8 @@ module "iam" {
     iam_users = var.iam_users
     policies_config = var.policies_config
 }
+
+module "oci_vcn" {
+    source = "./module/vcn"
+    vcn_config = var.vcn_config
+}
