@@ -36,13 +36,11 @@ resource "oci_identity_user_group_membership" "test_user_group_membership" {
     user_id = oci_identity_user.this[each.value.user_name].id
 }
 
-locals {
-
 #################
 # Policy
 #################
 # default values
-
+locals {
 default_policy = {
     tenancy_compartment_id = var.tenancy_ocid
     description            = "OCI Policy created with the OCI Core IAM Policies Module"
