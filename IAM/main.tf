@@ -6,7 +6,7 @@ locals {
       for user in group_data.user_list : {
         group_name = group
         user_name = user
-        mapping = "${group_name}-${user_name}"
+        mapping = "${group}-${user}"
       }
     ]  
   ])
