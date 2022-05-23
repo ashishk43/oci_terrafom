@@ -11,38 +11,13 @@ vcn_config = {
       vnc_public_subnet_cidr_block = "10.0.0.0/24"
       defined_tags   = { "Department" = "vcn_1" }
       freeform_tags  = { "Department" = "vcn_1" }
-      private_security_list = <<EOF
-                    // allow outbound tcp traffic on all ports
-                     egress_security_rules {
-                      destination = "0.0.0.0/0"
-                      protocol    = "6"
-                    }
-                    // allow inbound ssh traffic
-                    ingress_security_rules {
-                      protocol = "6"
-                      source   = "0.0.0.0/0"
-
-                      tcp_options {
-                        min = 22
-                        max = 22
-                      }
-                    }
-                    // allow inbound icmp traffic of a specific type
-                    ingress_security_rules {
-                      protocol = 1
-                      source   = "0.0.0.0/0"
-
-                      icmp_options {
-                        type = 3
-                        code = 4
-                      }
-                    }
-                    // allow inbound icmp traffic of a specific type
-                    ingress_security_rules {
-                      protocol = "all"
-                      source   = "10.0.0.0/16"
-                    }
-                    EOF
+      private_security_list = [{
+            destination = "0.0.0.0/0"
+            protocol    = "4"
+            },{
+            destination = "0.0.1.1/0"
+            protocol    = "4"
+            }]
     }
     vcn_2 = {
       vcn_label_prefix = "Prod"  
@@ -55,38 +30,13 @@ vcn_config = {
       vnc_public_subnet_cidr_block = "10.0.0.0/24"
       defined_tags   = { "Department" = "vcn_2" }
       freeform_tags  = { "Department" = "vcn_2" }
-      private_security_list = <<EOF
-                    // allow outbound tcp traffic on all ports
-                    egress_security_rules {
-                      destination = "0.0.0.0/0"
-                      protocol    = "6"
-                    }
-                    // allow inbound ssh traffic
-                    ingress_security_rules {
-                      protocol = "6"
-                      source   = "0.0.0.0/0"
-
-                      tcp_options {
-                        min = 22
-                        max = 22
-                      }
-                    }
-                    // allow inbound icmp traffic of a specific type
-                    ingress_security_rules {
-                      protocol = 1
-                      source   = "0.0.0.0/0"
-
-                      icmp_options {
-                        type = 3
-                        code = 4
-                      }
-                    }
-                    // allow inbound icmp traffic of a specific type
-                    ingress_security_rules {
-                      protocol = "all"
-                      source   = "10.0.0.0/16"
-                    }
-                    EOF
+      private_security_list = [{
+            destination = "0.0.0.0/0"
+            protocol    = "6"
+            },{
+            destination = "0.0.1.1/0"
+            protocol    = "6"
+            }]
     }
   }
 }

@@ -63,7 +63,22 @@ resource "oci_core_security_list" "private_security_list" {
   compartment_id    = each.value.compartment_id
   vcn_id         = oci_core_vcn.this[each.key].id
 
-  security_list = each.value.private_security_list
+  // allow outbound tcp traffic on all ports
+  egress_security_rules {
+    for_each = length(each.value.private_security_list)
+    each.value.private_security_list
+  }
+
+  // allow inbound ssh traffic
+  ingress_security_rules {
+    protocol = "6"
+    source   = "0.0.0.0/0"
+
+    tcp_options {
+      min = 22
+      max = 22
+    }
+  }
 }
 
 resource "oci_core_security_list" "public_security_list" {
