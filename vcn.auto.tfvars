@@ -11,12 +11,19 @@ vcn_config = {
       vnc_public_subnet_cidr_block = "10.0.0.0/24"
       defined_tags   = { "Department" = "vcn_1" }
       freeform_tags  = { "Department" = "vcn_1" }
-      private_security_list = [{
+      private_security_list_egress = [{
             destination = "0.0.0.0/0"
             protocol    = "4"
             },{
             destination = "0.0.1.1/0"
+            protocol    = "6"
+            }]
+      private_security_list_ingress = [{
+            destination = "0.0.0.0/0"
             protocol    = "4"
+            },{
+            destination = "0.0.1.1/0"
+            protocol    = "6"
             }]
     }
     vcn_2 = {
@@ -30,9 +37,16 @@ vcn_config = {
       vnc_public_subnet_cidr_block = "10.0.0.0/24"
       defined_tags   = { "Department" = "vcn_2" }
       freeform_tags  = { "Department" = "vcn_2" }
-      private_security_list = [{
+      private_security_list_egress = [{
             destination = "0.0.0.0/0"
+            protocol    = "4"
+            },{
+            destination = "0.0.1.1/0"
             protocol    = "6"
+            }]
+      private_security_list_ingress = [{
+            destination = "0.0.0.0/0"
+            protocol    = "4"
             },{
             destination = "0.0.1.1/0"
             protocol    = "6"

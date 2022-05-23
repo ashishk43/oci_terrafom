@@ -11,7 +11,8 @@ variable "vcn_config" {
       vnc_public_subnet_cidr_block = string,
       defined_tags   = map(string),
       freeform_tags  = map(string),
-      private_security_list = list(string)
+      private_security_list_egress = list(string)
+      private_security_list_ingress = list(string)
       })
     )
   })
