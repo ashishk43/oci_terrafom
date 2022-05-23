@@ -11,9 +11,9 @@ vcn_config = {
       vnc_public_subnet_cidr_block = "10.0.0.0/24"
       defined_tags   = { "Department" = "vcn_1" }
       freeform_tags  = { "Department" = "vcn_1" }
-      private_security_list =  
-      // allow outbound tcp traffic on all ports
-                    "egress_security_rules {
+      private_security_list = <<EOF
+                    // allow outbound tcp traffic on all ports
+                     egress_security_rules {
                       destination = "0.0.0.0/0"
                       protocol    = "6"
                     }
@@ -41,7 +41,8 @@ vcn_config = {
                     ingress_security_rules {
                       protocol = "all"
                       source   = "10.0.0.0/16"
-                    }"
+                    }
+                    EOF
     }
     vcn_2 = {
       vcn_label_prefix = "Prod"  
@@ -54,9 +55,9 @@ vcn_config = {
       vnc_public_subnet_cidr_block = "10.0.0.0/24"
       defined_tags   = { "Department" = "vcn_2" }
       freeform_tags  = { "Department" = "vcn_2" }
-      private_security_list =  
-      // allow outbound tcp traffic on all ports
-                    "egress_security_rules {
+      private_security_list = <<EOF
+                    // allow outbound tcp traffic on all ports
+                    egress_security_rules {
                       destination = "0.0.0.0/0"
                       protocol    = "6"
                     }
@@ -84,7 +85,8 @@ vcn_config = {
                     ingress_security_rules {
                       protocol = "all"
                       source   = "10.0.0.0/16"
-                    }"
+                    }
+                    EOF
     }
   }
 }
