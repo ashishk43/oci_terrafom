@@ -63,37 +63,7 @@ resource "oci_core_security_list" "private_security_list" {
   compartment_id    = each.value.compartment_id
   vcn_id         = oci_core_vcn.this[each.key].id
 
-  // allow outbound tcp traffic on all ports
-  egress_security_rules {
-    destination = "0.0.0.0/0"
-    protocol    = "6"
-  }
-
-  // allow inbound ssh traffic
-  ingress_security_rules {
-    protocol = "6"
-    source   = "0.0.0.0/0"
-
-    tcp_options {
-      min = 22
-      max = 22
-    }
-  }
-  // allow inbound icmp traffic of a specific type
-  ingress_security_rules {
-    protocol = 1
-    source   = "0.0.0.0/0"
-
-    icmp_options {
-      type = 3
-      code = 4
-    }
-  }
-  // allow inbound icmp traffic of a specific type
-  ingress_security_rules {
-    protocol = "all"
-    source   = "10.0.0.0/16"
-  }
+  security_list = each.value.private_security_list
 }
 
 resource "oci_core_security_list" "public_security_list" {
