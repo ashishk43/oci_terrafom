@@ -10,7 +10,6 @@ locals {
       }
     ]  
   ])
-
 }
 
 # Iterate iam_groups, to create a collection of group resources
